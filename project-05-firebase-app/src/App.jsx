@@ -10,6 +10,7 @@ import AddAndUpdateContact from "./components/AddAndUpdateContact"
 import useDisclouse from "./hooks/useDisclouse"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import NotFoundContact from "./components/NotFoundContact"
   
 const App = () => {
   const [contacts, setContacts] = useState([])
@@ -70,6 +71,7 @@ const App = () => {
         </div>
         <div className="mt-4 gap-3 flex flex-col">
           {
+            contacts.length <= 0 ? <NotFoundContact /> : 
             contacts.map((contact) => (
               <ContactCard key={contact.id} contact={contact} />
             ))}
